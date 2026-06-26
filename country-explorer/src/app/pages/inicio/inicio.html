@@ -1,0 +1,15 @@
+<div class="header">
+  <h1>Explorador de Países del Mundo</h1>
+</div>
+
+<div class="grid-paises">
+  @for (pais of listaPaises; track pais.country) {
+    <div class="tarjeta-basica">
+      <img [src]="pais.countryInfo.flag" [alt]="'Bandera de ' + pais.country">
+      <h3>{{ pais.country }}</h3>
+      <p>Continente: {{ pais.continent }}</p>
+    </div>
+  } @empty {
+    <p>Cargando países desde un servidor seguro...</p>
+  }
+</div>
