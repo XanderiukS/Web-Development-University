@@ -14,4 +14,9 @@ export class PaisesService {
   obtenerTodosLosPaises(): Observable<Pais[]> {
     return this.http.get<Pais[]>(this.apiUrl);
   }
+
+
+  obtenerPaisPorNombre(nombre: string): Observable<Pais> {
+    return this.http.get<Pais>(`${this.apiUrl}/${nombre}`);
+  }
 }

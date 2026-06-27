@@ -1,0 +1,31 @@
+.controles {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 0 40px;
+}
+
+.controles input, .controles select {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.controles input {
+  width: 300px;
+}
+
+.controles select {
+  cursor: pointer;
+  background-color: white;
+}
+
+.mensaje-vacio {
+  text-align: center;
+  grid-column: 1 / -1;
+  font-size: 18px;
+  color: #666;
+}

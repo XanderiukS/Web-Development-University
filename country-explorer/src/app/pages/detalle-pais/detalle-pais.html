@@ -1,1 +1,39 @@
-<p>detalle-pais works!</p>
+<div class="contenedor-detalle">
+  <a routerLink="/" class="btn-volver">← Volver al inicio</a>
+
+  @if (cargando) {
+    <p class="mensaje-carga">Cargando información detallada...</p>
+  } @else if (pais) {
+    <div class="tarjeta-detalle">
+      <div class="imagen-container">
+        <img [src]="pais.countryInfo.flag" [alt]="'Bandera de ' + pais.country">
+      </div>
+      
+      <div class="info-container">
+        <h2>{{ pais.country }}</h2>
+        <span class="etiqueta-continente">{{ pais.continent }}</span>
+        
+        <div class="estadisticas">
+          <div class="stat">
+            <h4>Población Total</h4>
+            <p>{{ pais.population | number }}</p> 
+          </div>
+          <div class="stat">
+            <h4>Casos Reportados</h4>
+            <p>{{ pais.cases | number }}</p>
+          </div>
+          <div class="stat">
+            <h4>Recuperados</h4>
+            <p>{{ pais.recovered | number }}</p>
+          </div>
+          <div class="stat">
+            <h4>Decesos</h4>
+            <p>{{ pais.deaths | number }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <p>No se pudo cargar la información del país.</p>
+  }
+</div>
