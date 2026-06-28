@@ -3,7 +3,6 @@
   padding: 2.5rem 0 4rem;
 }
 
-/* ── Controls bar ── */
 .controls {
   display: flex;
   align-items: center;
@@ -20,7 +19,6 @@
   min-height: 1.5rem;
 }
 
-/* ── Loading state ── */
 .state-loading {
   display: flex;
   flex-direction: column;
@@ -45,7 +43,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* ── Error state ── */
 .state-error {
   display: flex;
   flex-direction: column;
@@ -69,7 +66,6 @@
   max-width: 380px;
 }
 
-/* ── Gallery grid ── */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

@@ -24,15 +24,13 @@
   }
 }
 
-/* ── Image wrapper ── */
 .dog-card__image-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 75%; // 4:3 aspect ratio
+  padding-top: 75%;
   background-color: var(--clr-primary-light);
   overflow: hidden;
 
-  // Shimmer skeleton while image loads
   &:not(.loaded)::after {
     content: '';
     position: absolute;
@@ -53,7 +51,6 @@
   to   { background-position: -200% 0; }
 }
 
-/* ── Actual image ── */
 .dog-card__img {
   position: absolute;
   inset: 0;
@@ -72,7 +69,6 @@
   }
 }
 
-/* ── Error fallback ── */
 .dog-card__fallback {
   position: absolute;
   inset: 0;
@@ -83,7 +79,6 @@
   background-color: var(--clr-primary-light);
 }
 
-/* ── Info bar ── */
 .dog-card__info {
   padding: 0.75rem 1rem;
   display: flex;
@@ -100,16 +95,4 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.dog-card__badge {
-  flex-shrink: 0;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--clr-primary);
-  background-color: var(--clr-primary-light);
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }

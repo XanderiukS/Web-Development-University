@@ -36,15 +36,6 @@ export class GalleryComponent implements OnInit {
         this.dogs.set(dogs);
         this.state.set('success');
       },
-      error: (err: Error) => {
-        const isNetwork = err.message?.toLowerCase().includes('http');
-        this.errorMessage.set(
-          isNetwork
-            ? 'Could not reach the Dog CEO API. Check your connection and try again.'
-            : (err.message ?? 'An unexpected error occurred. Please try again.')
-        );
-        this.state.set('error');
-      },
     });
   }
 }
