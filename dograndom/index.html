@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DogRandom — Random Dog Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-icon" aria-hidden="true">&#128054;</span>
+          <span class="logo-text">DogRandom</span>
+        </div>
+        <p class="tagline">20 random dog photos, fetched fresh on every load.</p>
+        <button class="btn-refresh" id="refreshBtn" aria-label="Fetch new dog images">
+          Fetch New Dogs
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Loading state -->
+      <div class="state-loading" id="loadingState" aria-live="polite" aria-label="Loading images">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Fetching your dogs&hellip;</p>
+      </div>
+
+      <!-- Error state -->
+      <div class="state-error hidden" id="errorState" role="alert">
+        <span class="error-icon" aria-hidden="true">&#9888;&#65039;</span>
+        <p id="errorMessage">Something went wrong. Please try again.</p>
+        <button class="btn-retry" id="retryBtn">Try Again</button>
+      </div>
+
+      <!-- Gallery -->
+      <section
+        class="gallery hidden"
+        id="gallery"
+        aria-label="Random dog image gallery"
+      >
+        <!-- Cards are injected here by app.js -->
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Powered by the
+        <a href="https://dog.ceo/dog-api/" target="_blank" rel="noopener noreferrer">
+          Dog CEO API
+        </a>
+        &mdash; images are royalty-free and sourced from
+        <a href="https://github.com/jigsawpieces/dog-api-images" target="_blank" rel="noopener noreferrer">
+          the community dataset
+        </a>.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
