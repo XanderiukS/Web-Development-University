@@ -1,0 +1,25 @@
+<article class="dog-card" [style.animation-delay]="animationDelay">
+  <div class="dog-card__image-wrapper" [class.loaded]="imageLoaded">
+    @if (imageError) {
+      <div class="dog-card__fallback" role="img" [attr.aria-label]="'Image unavailable for ' + dog.breed">
+        <span aria-hidden="true">&#128062;</span>
+      </div>
+    } @else {
+      <img
+        class="dog-card__img"
+        [src]="dog.url"
+        [alt]="'Random ' + dog.breed + ' dog'"
+        [ngClass]="{ visible: imageLoaded }"
+        loading="lazy"
+        decoding="async"
+        (load)="onLoad()"
+        (error)="onError()"
+      />
+    }
+  </div>
+
+  <div class="dog-card__info">
+    <span class="dog-card__breed">{{ dog.breed }}</span>
+    <span class="dog-card__badge" aria-hidden="true">dog</span>
+  </div>
+</article>

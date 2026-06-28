@@ -1,0 +1,54 @@
+<main class="gallery-page">
+  <div class="container">
+
+    <!-- Controls bar -->
+    <div class="controls">
+      <p class="controls__count">
+        @if (isSuccess()) {
+          {{ dogs().length }} photos loaded
+        } @else {
+          &nbsp;
+        }
+      </p>
+      <button
+        class="btn-primary"
+        (click)="fetchDogs()"
+        [disabled]="isLoading()"
+        aria-label="Fetch new random dog images"
+      >
+        @if (isLoading()) {
+          Fetching&hellip;
+        } @else {
+          Fetch New Dogs
+        }
+      </button>
+    </div>
+
+    <!-- Loading state -->
+    @if (isLoading()) {
+      <div class="state-loading" aria-live="polite" aria-label="Loading dog images">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Fetching your dogs&hellip;</p>
+      </div>
+    }
+
+    <!-- Error state -->
+    @if (isError()) {
+      <div class="state-error" role="alert">
+        <span class="state-error__icon" aria-hidden="true">&#9888;&#65039;</span>
+        <p class="state-error__message">{{ errorMessage() }}</p>
+        <button class="btn-primary" (click)="fetchDogs()">Try Again</button>
+      </div>
+    }
+
+    <!-- Gallery grid -->
+    @if (isSuccess()) {
+      <section class="gallery" aria-label="Random dog image gallery">
+        @for (dog of dogs(); track dog.url; let i = $index) {
+          <app-dog-card [dog]="dog" [index]="i" />
+        }
+      </section>
+    }
+
+  </div>
+</main>
