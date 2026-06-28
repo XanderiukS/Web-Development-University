@@ -24,6 +24,6 @@ export class DogCardComponent {
   }
 
   get animationDelay(): string {
-    return `${this.index * 35}ms`;
+    return `${this.index * 100}ms`;
   }
 }

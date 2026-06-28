@@ -22,11 +22,6 @@ export class DogService {
     );
   }
 
-  /**
-   * Parses a breed name from a Dog CEO image URL.
-   * URL format: https://images.dog.ceo/breeds/<breed>[-<sub>]/<file>.jpg
-   * e.g. "hound-basset" → "basset hound", "labrador" → "labrador"
-   */
   private extractBreed(url: string): string {
     try {
       const parts = new URL(url).pathname.split('/');
