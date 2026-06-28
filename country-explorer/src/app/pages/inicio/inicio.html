@@ -1,5 +1,8 @@
 <div class="header">
   <h1>Explorador de Países del Mundo</h1>
+  <a routerLink="/favoritos" class="btn-favorito" style="display: inline-block; margin-top: 15px; text-decoration: none;">
+    ⭐ Ver Mis Favoritos
+  </a>
 </div>
 
 <div class="controles">
@@ -12,21 +15,20 @@
   <select [(ngModel)]="continenteSeleccionado">
     <option value="Todos">Todos los continentes</option>
     <option value="Africa">África</option>
+    <option value="Americas">América</option>
     <option value="Asia">Asia</option>
     <option value="Europe">Europa</option>
-    <option value="North America">Norteamérica</option>
-    <option value="South America">Sudamérica</option>
-    <option value="Australia-Oceania">Oceanía</option>
+    <option value="Oceania">Oceanía</option>
   </select>
 </div>
 
 <div class="grid-paises">
-  @for (pais of paisesFiltrados; track pais.country) {
-<div class="tarjeta-basica" [routerLink]="['/pais', pais.country]" style="cursor: pointer;">
-  <img [src]="pais.countryInfo.flag" [alt]="'Bandera de ' + pais.country">
-  <h3>{{ pais.country }}</h3>
-  <p>Continente: {{ pais.continent }}</p>
-</div>
+  @for (pais of paisesFiltrados; track pais.names?.common) {
+    <div class="tarjeta-basica" [routerLink]="['/pais', pais.names?.common]" style="cursor: pointer;">
+      <img [src]="pais.flag?.url_svg" [alt]="'Bandera de ' + pais.names?.common">
+      <h3>{{ pais.names?.common }}</h3>
+      <p>Continente: {{ pais.region }}</p>
+    </div>
   } @empty {
     <p class="mensaje-vacio">No se encontraron países que coincidan con tu búsqueda.</p>
   }

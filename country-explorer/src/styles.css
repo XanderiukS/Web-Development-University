@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6; /* Un gris/azulado muy moderno y limpio */
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}

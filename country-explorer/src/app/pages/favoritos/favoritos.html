@@ -1,1 +1,18 @@
-<p>favoritos works!</p>
+<div class="header">
+  <h1>Mis Países Favoritos ⭐</h1>
+  <a routerLink="/" class="btn-volver" style="margin-top: 15px;">← Volver al Explorador</a>
+</div>
+
+<div class="grid-paises">
+  @for (pais of paisesFavoritos; track pais.names?.common) {
+    <div class="tarjeta-basica" [routerLink]="['/pais', pais.names?.common]" style="cursor: pointer;">
+      <img [src]="pais.flag?.url_svg" [alt]="'Bandera de ' + pais.names?.common">
+      <h3>{{ pais.names?.common }}</h3>
+      <p>Continente: {{ pais.region }}</p>
+    </div>
+  } @empty {
+    <div class="mensaje-vacio">
+      <p>Aún no tienes países favoritos guardados en tu navegador.</p>
+    </div>
+  }
+</div>

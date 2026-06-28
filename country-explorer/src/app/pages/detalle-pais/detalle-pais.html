@@ -4,33 +4,45 @@
   @if (cargando) {
     <p class="mensaje-carga">Cargando información detallada...</p>
   } @else if (pais) {
-    <div class="tarjeta-detalle">
+<div class="tarjeta-detalle">
       <div class="imagen-container">
-        <img [src]="pais.countryInfo.flag" [alt]="'Bandera de ' + pais.country">
+        <img [src]="pais.flag?.url_svg" [alt]="'Bandera de ' + pais.names?.common">
       </div>
       
-      <div class="info-container">
-        <h2>{{ pais.country }}</h2>
-        <span class="etiqueta-continente">{{ pais.continent }}</span>
+<div class="info-container">
+        <h2>{{ pais.names.common }}</h2>
+        <p style="color: #7f8c8d; margin-top: -10px; margin-bottom: 15px; font-weight: bold;">
+          Nombre Oficial: {{ pais.names.official }}
+        </p>
+        <span class="etiqueta-continente">{{ pais.region }}</span>
+        
+        <br>
+        <button class="btn-favorito" (click)="toggleFavorito()">
+          {{ esFavorito ? '⭐ Quitar de Favoritos' : '☆ Añadir a Favoritos' }}
+        </button>
         
         <div class="estadisticas">
+        <div class="stat">
+            <h4>Capital</h4>
+            <p>{{ getCapital(pais) }}</p> 
+          </div>
           <div class="stat">
             <h4>Población Total</h4>
             <p>{{ pais.population | number }}</p> 
           </div>
           <div class="stat">
-            <h4>Casos Reportados</h4>
-            <p>{{ pais.cases | number }}</p>
+            <h4>Moneda</h4>
+            <p style="font-size: 1.3em;">{{ getMoneda(pais) }}</p>
           </div>
           <div class="stat">
-            <h4>Recuperados</h4>
-            <p>{{ pais.recovered | number }}</p>
-          </div>
-          <div class="stat">
-            <h4>Decesos</h4>
-            <p>{{ pais.deaths | number }}</p>
+            <h4>Idiomas</h4>
+            <p style="font-size: 1.3em;">{{ getIdiomas(pais) }}</p>
           </div>
         </div>
+
+        <a [href]="pais.maps.googleMaps" target="_blank" class="btn-volver" style="margin-top: 30px; background-color: #27ae60; color: white;">
+          📍 Ver en Google Maps
+        </a>
       </div>
     </div>
   } @else {

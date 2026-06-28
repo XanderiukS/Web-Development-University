@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'; 
@@ -30,10 +30,19 @@ export class InicioComponent implements OnInit {
     });
   }
 
-  get paisesFiltrados(): Pais[] {
+get paisesFiltrados(): Pais[] {
+    if (!Array.isArray(this.listaPaises)) {
+      console.warn('Esperaba un arreglo de países, pero recibí:', this.listaPaises);
+      return [];
+    }
+
     return this.listaPaises.filter(pais => {
-      const coincideTexto = pais.country.toLowerCase().includes(this.textoBusqueda.toLowerCase());
-      const coincideContinente = this.continenteSeleccionado === 'Todos' || pais.continent === this.continenteSeleccionado;
+      const nombre = pais.names?.common || '';
+      const region = pais.region || '';
+      
+      const coincideTexto = nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+      const coincideContinente = this.continenteSeleccionado === 'Todos' || region === this.continenteSeleccionado;
+      
       return coincideTexto && coincideContinente;
     });
   }
