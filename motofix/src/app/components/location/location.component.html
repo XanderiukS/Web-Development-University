@@ -1,0 +1,77 @@
+<section class="location-section" id="ubicacion">
+  <div class="container">
+
+    <div class="location-header">
+      <div class="section-label">Encuéntranos</div>
+      <h2 class="section-title">Ubicación y Horarios</h2>
+    </div>
+
+    <div class="location-grid">
+
+      <!-- Map placeholder -->
+      <div class="map-col">
+        <div class="map-wrapper">
+          <img
+            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&auto=format&fit=crop&q=80"
+            alt="Mapa de ubicación MotoFix"
+            loading="lazy"
+            class="map-image"
+          />
+          <div class="map-pin">
+            <div class="pin-dot">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="pin-label">MotoFix</div>
+          </div>
+          <div class="map-overlay-label">5a Avenida 10-35, Zona 10 · Guatemala City</div>
+        </div>
+      </div>
+
+      <!-- Info column -->
+      <div class="info-col">
+
+        <!-- Address -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Dirección</h4>
+            <p>5a Avenida 10-35, Zona 10</p>
+            <p>Ciudad de Guatemala, Guatemala</p>
+            <p class="info-sub">Frente al Centro Comercial Pradera</p>
+          </div>
+        </div>
+
+        <!-- Status badge -->
+        <div class="status-badge" [class.open]="isOpenNow" [class.closed]="!isOpenNow">
+          <span class="status-dot"></span>
+          {{ todayStatus }}
+        </div>
+
+        <!-- Schedule table -->
+        <div class="schedule-table">
+          <h4 class="schedule-title">Horarios de Atención</h4>
+          <div class="schedule-list">
+            @for (item of schedule; track item.day) {
+              <div class="schedule-row" [class.closed-day]="!item.open">
+                <span class="schedule-day">{{ item.day }}</span>
+                <span class="schedule-hours" [class.closed-text]="!item.open">
+                  {{ item.hours }}
+                </span>
+              </div>
+            }
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>

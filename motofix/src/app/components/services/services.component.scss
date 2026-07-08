@@ -1,0 +1,141 @@
+.services-section {
+  padding: 96px 0;
+  background: var(--color-light-gray);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 56px;
+
+  .section-description {
+    margin: 0 auto;
+  }
+
+  .section-title {
+    &::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 4px;
+      background: var(--color-red);
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Service Card ────────────────────────────────────────────────── */
+
+.service-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon-wrap {
+      background: var(--color-red);
+      color: var(--color-white);
+    }
+  }
+}
+
+/* ─── Icon ────────────────────────────────────────────────────────── */
+
+.service-icon-wrap {
+  width: 56px;
+  height: 56px;
+  background: var(--color-red-light);
+  color: var(--color-red);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: var(--transition);
+  flex-shrink: 0;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.service-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--color-mid-gray);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* ─── Features List ──────────────────────────────────────────────── */
+
+.service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--color-dark-gray);
+    font-weight: 500;
+
+    svg {
+      color: var(--color-red);
+      flex-shrink: 0;
+    }
+  }
+}

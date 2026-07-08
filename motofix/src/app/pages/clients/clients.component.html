@@ -1,0 +1,134 @@
+<!-- Page Hero Banner -->
+<div class="clients-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+      <span>Clientes</span>
+    </div>
+    <h1 class="clients-hero-title">Nuestros Clientes</h1>
+    <p class="clients-hero-sub">
+      Más de 2,500 clientes confían en MotoFix para el cuidado de sus vehículos.
+      Aquí mostramos algunos de nuestros clientes registrados.
+    </p>
+    <div class="clients-stats">
+      <div class="cstat">
+        <span class="cstat-num">+2,500</span>
+        <span class="cstat-lbl">Clientes Totales</span>
+      </div>
+      <div class="cstat-sep"></div>
+      <div class="cstat">
+        <span class="cstat-num">98%</span>
+        <span class="cstat-lbl">Satisfacción</span>
+      </div>
+      <div class="cstat-sep"></div>
+      <div class="cstat">
+        <span class="cstat-num">15+</span>
+        <span class="cstat-lbl">Años de Servicio</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="clients-page">
+  <div class="container">
+
+    <!-- Loading state -->
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando clientes...</p>
+      </div>
+    }
+
+    <!-- Error state -->
+    @if (error && !loading) {
+      <div class="error-state">
+        <div class="error-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <h3>Error al cargar</h3>
+        <p>{{ errorMessage }}</p>
+        <button class="btn-retry" (click)="loadClients()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"/>
+            <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+          </svg>
+          Reintentar
+        </button>
+      </div>
+    }
+
+    <!-- Clients grid -->
+    @if (!loading && !error) {
+      <div class="clients-toolbar">
+        <p class="clients-count">
+          Mostrando <strong>{{ clients.length }}</strong> clientes registrados
+        </p>
+        <div class="api-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          Datos en tiempo real
+        </div>
+      </div>
+
+      <div class="clients-grid">
+        @for (client of clients; track client.id) {
+          <div class="client-card">
+
+            <div class="client-card-header">
+              <div
+                class="client-avatar"
+                [style.background]="getAvatarColor(client.id)"
+              >
+                {{ client.initials }}
+              </div>
+              <div class="client-id-badge">#{{ client.id.toString().padStart(3, '0') }}</div>
+            </div>
+
+            <div class="client-info">
+              <h3 class="client-name">{{ client.name }}</h3>
+              <span class="client-company">{{ client.company }}</span>
+
+              <div class="client-details">
+                <div class="detail-row">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <span class="detail-value">{{ client.email }}</span>
+                </div>
+                <div class="detail-row">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                  <span class="detail-value">{{ formatPhone(client.phone) }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="client-card-footer">
+              <span class="client-status">
+                <span class="status-dot"></span>
+                Cliente Activo
+              </span>
+              <a href="#contacto" class="client-action-btn">
+                Contactar
+              </a>
+            </div>
+
+          </div>
+        }
+      </div>
+    }
+
+  </div>
+</div>

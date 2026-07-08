@@ -1,0 +1,69 @@
+<nav class="navbar" [class.scrolled]="isScrolled" [class.menu-open]="menuOpen">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a routerLink="/" class="nav-logo" (click)="closeMenu()">
+      <div class="logo-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#E63946"/>
+          <path d="M8 22h2v-8H8v8zm4-12v12h2V14h4v8h2V10H12zm10 4h-2v8h2v-8z" fill="white"/>
+          <circle cx="10" cy="12" r="2" fill="white"/>
+          <circle cx="22" cy="12" r="2" fill="white"/>
+        </svg>
+      </div>
+      <span class="logo-text">Moto<span class="logo-accent">Fix</span></span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenu()">Inicio</a>
+      </li>
+      <li>
+        <a href="#nosotros" (click)="navigateToSection('nosotros', $event)">Nosotros</a>
+      </li>
+      <li>
+        <a href="#servicios" (click)="navigateToSection('servicios', $event)">Servicios</a>
+      </li>
+      <li>
+        <a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()">Clientes</a>
+      </li>
+    </ul>
+
+    <!-- CTA Button (desktop) -->
+    <a routerLink="/clientes" class="nav-cta" (click)="closeMenu()">
+      Ver Clientes
+    </a>
+
+    <!-- Hamburger -->
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <ul>
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenu()">Inicio</a>
+      </li>
+      <li>
+        <a href="#nosotros" (click)="navigateToSection('nosotros', $event)">Nosotros</a>
+      </li>
+      <li>
+        <a href="#servicios" (click)="navigateToSection('servicios', $event)">Servicios</a>
+      </li>
+      <li>
+        <a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()">Clientes</a>
+      </li>
+    </ul>
+    <a routerLink="/clientes" class="mobile-cta" (click)="closeMenu()">
+      Ver Clientes
+    </a>
+  </div>
+</nav>
