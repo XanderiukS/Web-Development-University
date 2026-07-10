@@ -1,0 +1,31 @@
+<mat-card class="tarjeta-gaming">
+  <img mat-card-image [src]="juego.imagen" alt="Portada de {{ juego.titulo }}">
+  
+  <mat-card-header>
+    <mat-card-title>{{ juego.titulo }}</mat-card-title>
+    <mat-card-subtitle>{{ juego.genero }}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <p class="descripcion">{{ juego.descripcion }}</p>
+
+    <div class="contenedor-precio">
+      <ng-container *ngIf="juego.precioOferta; else precioNormal">
+        <p class="precio-tachado" style="text-decoration: line-through; color: gray;">
+          ${{ juego.precioActual }}
+        </p>
+        <h3 class="precio-descuento" style="color: #ff4081;">
+          ${{ juego.precioDescuento }}
+        </h3>
+      </ng-container>
+      
+      <ng-template #precioNormal>
+        <h3>${{ juego.precioActual }}</h3>
+      </ng-template>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Comprar</button>
+  </mat-card-actions>
+</mat-card>

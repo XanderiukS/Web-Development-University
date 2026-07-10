@@ -1,0 +1,32 @@
+<div class="inicio-container">
+  <div class="banner">
+    <h1>Bienvenido a {{ empresa.nombre }}</h1>
+    <p>El paraíso para los entusiastas del Gaming</p>
+  </div>
+
+  <div class="contenido-grid" style="text-align: center;">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Nuestra Identidad</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h3>Misión</h3>
+        <p>{{ empresa.mision }}</p>
+        <mat-divider></mat-divider>
+        <h3>Visión</h3>
+        <p>{{ empresa.vision }}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Contacto</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Teléfono:</strong> {{ empresa.contacto.telefono }}</p>
+        <p><strong>Correo:</strong> {{ empresa.contacto.correo }}</p>
+        <p><strong>Redes Sociales:</strong> {{ empresa.contacto.redes }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

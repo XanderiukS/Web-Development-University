@@ -1,0 +1,13 @@
+<div class="contenedor-pagina">
+  <h1 style="text-align: center;" [style]="{ color: 'white' }">🔥 Ofertas Especiales de Temporada 🔥</h1>
+
+  <div class="grid-productos" style="display: flex; flex-wrap: wrap; gap: 20px;">
+    @for (oferta of juegosEnOferta; track oferta.id) {
+      <app-producto-tarjeta [juego]="oferta"></app-producto-tarjeta>
+    }
+    
+    @if (juegosEnOferta.length === 0) {
+      <p>Lo sentimos, no hay ofertas disponibles en este momento.</p>
+    }
+  </div>
+</div>

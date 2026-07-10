@@ -1,0 +1,70 @@
+.inicio-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.banner {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url('https://plus.unsplash.com/premium_photo-1687854992749-e15cba89631d?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dw=1000');
+  background-size: cover;
+  color: white;
+  padding: 150px 150px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.contenido-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+mat-card {
+  width: 100%;
+  text-align: center;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+mat-card-title {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contenido-grid {
+    grid-template-columns: 1fr;
+  }
+}
+mat-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+mat-card:hover {
+  transform: translateY(-10px);
+  background-color: #1E1E1E;
+  box-shadow: 0 15px 30px rgba(255, 64, 129, 0.4);
+  border: 1px solid #ff4081;
+
+}
+mat-card:hover mat-card-title {
+  color: #ff4081;
+}
+
+mat-card:hover h3 {
+  color: #ff4081; /* El color magenta que usamos de acento */
+  transition: color 0.3s ease;
+  transform: scale(1.05); /* Hace que el texto crezca un poquito */
+}
+
+mat-card:hover p {
+  color: #ffffff; /* Si tu fondo es oscuro, ponlo blanco puro para que resalte */
+  transition: color 0.3s ease;
+}

@@ -1,0 +1,9 @@
+<div class="contenedor-pagina">
+  <h1 style="text-align: center;" [style]="{ color: 'white' }">🎮 Catálogo de Videojuegos 🎮</h1>
+
+  <div class="grid-productos" style="display: flex; flex-wrap: wrap; gap: 20px;">
+    @for (jueguito of listaVideojuegos; track jueguito.id) {
+      <app-producto-tarjeta [juego]="jueguito"></app-producto-tarjeta>
+    }
+  </div>
+</div>

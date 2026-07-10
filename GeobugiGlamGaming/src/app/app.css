@@ -1,0 +1,31 @@
+.navbar-gaming {
+  background-color: #1a1a1a; /* Color oscuro gaming */
+  padding: 20px 0;           /* Más alto */
+  display: flex;
+  justify-content: center;   /* Centra el menú */
+  border-bottom: 3px solid #ff4081; /* Línea decorativa tipo neón */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;         /* ¡Aquí haces la letra más grande! */
+  font-weight: bold;
+  margin: 0 25px;            /* Más separación entre palabras */
+  transition: all 0.3s ease; /* Para que el cambio de color sea suave */
+  text-transform: uppercase; /* Todo en mayúsculas para estilo gamer */
+}
+
+/* Efecto al pasar el mouse */
+.nav-links a:hover {
+  color: #ff4081;
+  text-shadow: 0 0 8px #ff4081;
+  transform: scale(1.1);     /* Crece un poquito al tocarlo */
+}
+
+/* Clase para la página donde estás parado actualmente */
+.active-link {
+  color: #ff4081 !important;
+  border-bottom: 2px solid #ff4081;
+}
