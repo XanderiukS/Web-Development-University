@@ -1,5 +1,5 @@
 {
-  "name": "domingo-pokemon",
+  "name": "Pokedex",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:DomingoPokemon": "node dist/DomingoPokemon/server/server.mjs"
+    "serve:ssr:Pokedex": "node dist/Pokedex/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.12.1",
